@@ -34,7 +34,8 @@ function reducer(state, { type, payload }) {
           todos: state.todos.map((todo) =>
             todo.id === payload ? { ...todo, complete: !todo.complete } : todo
           ),
-        }
+        },
+        { ...state, todos: state.todos.filter((todo) => todo.id !== payload) }
       );
 
     case "DELETE_TODO":

@@ -6,10 +6,16 @@ export default function TodoList() {
   const dispatch = useDispatch();
 
   const deleteAction = (id) => {
-    dispatch({ type: "DELETE_TODO", payload: id });
+    let result = window.confirm("Want to delete?");
+    if (result) {
+      dispatch({ type: "DELETE_TODO", payload: id });
+    }
   };
   const itsDone = (id) => {
-    dispatch({ type: "TOGGLE_TODO", payload: id });
+    let result = window.confirm("After this elements will be removed");
+    if (result) {
+      dispatch({ type: "TOGGLE_TODO", payload: id });
+    }
   };
   return (
     <div>
