@@ -27,17 +27,12 @@ function reducer(state, { type, payload }) {
     case "ADD_TODO":
       return { ...state, todos: [...state.todos, payload] };
     case "TOGGLE_TODO":
-      return (
-        console.log(state),
-        {
-          ...state,
-          todos: state.todos.map((todo) =>
-            todo.id === payload ? { ...todo, complete: !todo.complete } : todo
-          ),
-        },
-        { ...state, todos: state.todos.filter((todo) => todo.id !== payload) }
-      );
-
+      return {
+        ...state,
+        todos: state.todos.map((todo) =>
+          todo.id === payload ? { ...todo, complete: !todo.complete } : todo
+        ),
+      };
     case "DELETE_TODO":
       return {
         ...state,
